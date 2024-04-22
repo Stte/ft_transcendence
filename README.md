@@ -1,0 +1,13 @@
+- django
+  - django channels
+    - Websockets for realtime gaming
+      - [Doc - Tutorial Part1: Basic Setup](https://channels.readthedocs.io/en/latest/tutorial/part_1.html)
+    - Authenticatates user with auth-token
+      - [Doc - Custom Authentication](https://channels.readthedocs.io/en/stable/topics/authentication.html#custom-authentication)
+      - [Stackoverflow - TokenAuthMiddleware](https://stackoverflow.com/a/65437244)
+  - django rest_framework
+    - REST API
+      - [Doc - Quickstart](https://www.django-rest-framework.org/tutorial/quickstart/)
+    - Creating user authentication token
+      - [Doc - TokenAuthentication](https://www.django-rest-framework.org/api-guide/authentication/#tokenauthentication)
+      - [Medium - Token-Based Authentication](https://medium.com/django-unleashed/token-based-authentication-and-authorization-in-django-rest-framework-user-and-permissions-347c7cc472e9)
