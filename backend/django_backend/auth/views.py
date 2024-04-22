@@ -1,24 +1,22 @@
-from django.shortcuts import render, redirect
+from rest_framework import generics, permissions, viewsets
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework.authtoken.models import Token
 
 # Create your views here.
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate
 
-def my_view(request):
-	if request.method == 'POST':
-		username = request.POST['username']
-		password = request.POST['password']
-		user = authenticate(request, username=username, password=password)
-		if user is not None:
-			login(request, user)
-			# Redirect to a success page.
-			return redirect('success_page')
-		else:
-			# Return an 'invalid login' error message.
-			return render(request, 'login.html', {'error': 'Invalid login credentials'})
-	else:
-		return render(request, 'login.html')
+# from .serializers import UserSerializer
 
-def logout_view(request):
-	logout(request)
-	# Redirect to a success page.
-	return redirect('success_page')
+# class UserRegistrationView(generics.CreateAPIView):
+#     serializer_class = UserSerializer
+#     permission_classes = [permissions.AllowAny]
+
+class UserLoginView(APIView):
+    def post(self, request):
+        user = authenticate(username=request.data['username'], password=request.data['password'])
+        if user:
+            token, created = Token.objects.get_or_create(user=user)
+            return Response({'token': token.key})
+        else:
+            return Response({'error': 'Invalid credentials'}, status=401)
