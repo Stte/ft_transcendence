@@ -19,7 +19,16 @@ from django.urls import path, include
 from django.contrib.auth.views import LoginView
 #from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView, PasswordChangeDoneView, PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 
+from rest_framework import routers
+
+from rest_demo import views as rest_views
+
+router = routers.DefaultRouter()
+router.register(r'users', rest_views.UserViewSet)
+router.register(r'groups', rest_views.GroupViewSet)
+
 urlpatterns = [
+	path('', include(router.urls)),
     path('admin/', admin.site.urls),
     # path("accounts/", include("django.contrib.auth.urls")),
 	path('login/', LoginView.as_view(), name='login'),
