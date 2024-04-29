@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
+	'rest_framework',
 	'channels',
 	'daphne',
 	'pong',
@@ -135,3 +136,9 @@ CHANNEL_LAYERS = {
 }
 
 LOGIN_REDIRECT_URL = '/'
+
+REST_FRAMEWORK = {
+	'DEFAULT_AUTHENTICATION_CLASSES': [
+		'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
