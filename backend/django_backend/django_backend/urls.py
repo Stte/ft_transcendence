@@ -23,7 +23,7 @@ from rest_framework_simplejwt.views import (
 )
 
 from rest_framework import routers
-from auth.views import UserViewSet
+from user.views import UserViewSet
 # from rest_demo import views as rest_views
 
 router = routers.DefaultRouter()
