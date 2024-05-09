@@ -11,3 +11,4 @@
     - Creating user authentication token
       - [Doc - TokenAuthentication](https://www.django-rest-framework.org/api-guide/authentication/#tokenauthentication)
       - [Medium - Token-Based Authentication](https://medium.com/django-unleashed/token-based-authentication-and-authorization-in-django-rest-framework-user-and-permissions-347c7cc472e9)
+  - [Stackoverflow - Generate new secret key](https://stackoverflow.com/a/67423892)
