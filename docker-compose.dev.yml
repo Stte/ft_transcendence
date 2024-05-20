@@ -1,0 +1,11 @@
+services:
+  dev:
+    build:
+      context: ./backend/django_backend/
+      dockerfile: Dockerfile
+    container_name: django_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/django_backend:/app
+    working_dir: /app
