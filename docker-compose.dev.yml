@@ -1,5 +1,5 @@
 services:
-  dev:
+  django:
     build:
       context: ./backend/django_backend/
       dockerfile: Dockerfile
@@ -9,3 +9,5 @@ services:
     volumes:
       - ./backend/django_backend:/app
     working_dir: /app
+    environment:
+      - .dev.env
