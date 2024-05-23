@@ -11,3 +11,25 @@ services:
     working_dir: /app
     environment:
       - .dev.env
+    depends_on:
+      - db
+ #To persist the data beyond the life of the container we configured a volume.
+ #This config will bind postgres_data to the "/var/lib/postgresql/data/" directory in the container.
+  db:
+    build:
+      context: ./backend/database/
+      dockerfile: Dockerfile
+    container_name: postgres_db
+    ports:
+      -"5432:5432"
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    env_file:
+      - .dev.env.
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  posgres-data:
