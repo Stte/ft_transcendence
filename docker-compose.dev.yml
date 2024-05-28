@@ -13,6 +13,8 @@ services:
     working_dir: /app
     environment:
       - .dev.env
+    networks:
+      - django_db_network
     depends_on:
       db:
         condition: service_healthy
@@ -29,6 +31,8 @@ services:
       - POSTGRES_DB=${DB_NAME}
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
+    networks:
+      - django_db_network
     env_file:
       - .env
     volumes:
@@ -41,3 +45,8 @@ services:
 
 volumes:
   postgres-data:
+
+#custom networks to facilitate communication between the containers
+networks:
+  django_db_network:
+    name: django_db_network
