@@ -3,28 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Play Pong</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>PLAY PONG</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <script defer src = "/static/js/login.js"></script>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>PLAY PONG</h1>
-            <button id="profile">Profile</button>
-        </header>
-        <nav>
-            <button id="one-vs-one">1 vs 1</button>
-            <button id="tournaments">Tournaments</button>
-            <button id="friends">Friends</button>
-        </nav>
-        <main>
-            <div class="pong-table">
-                <div class="paddle left"></div>
-                <div class="ball"></div>
-                <div class="paddle right"></div>
-            </div>
-        </main>
-    </div>
-    <script src="script.js"></script>
+    <nav class="nav">
+        <a href = "/" class="nave__link" data-link>Dashboard</a><br>
+        <a href = "/one-vs-one" class="nave__link" data-link>ONE-VS-ONE</a><br>
+        <a href = "/tournaments" class="nave__link" data-link>Tournaments</a><br>
+        <a href = "/friends"class="nave__link" data-link>Friends</a><br>
+    </nav>
+    <div id="app"></div>
+    <script type="module" src="static/js/index.js"></script>
+    <!-- javascript file. each views will have their own javascript class -->
 </body>
 </html>
