@@ -24,3 +24,10 @@ export default class extends AView {
 			`;
 	}
 }
+
+/* <nav class ="nav">
+<a href = "/dashboard" class="nave__link" data-link>Dashboard</a><br>
+<a href = "/one-vs-one" class="nave__link" data-link>ONE-VS-ONE</a><br>
+<a href = "/tournaments" class="nave__link" data-link>Tournaments</a><br>
+<a href = "/friends"class="nave__link" data-link>Friends</a><br>
+</nav> */

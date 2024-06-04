@@ -10,7 +10,7 @@ const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(
 //and object.fromEntries will take the multidimensional arrays convert into objects.
 const getParams = match =>{
 	const values = match.result.slice(1);
-	const keys = Array.from(match.route.path.matchAll(/:(\w+)/g).map(result => result[1]));
+	const keys = Array.from(match.route.path.matchAll(/:(\w+)/g)).map(result => result[1]);
 
 	return Object.fromEntries(keys.map((key, i) => {
 		return [key, values[i]];
@@ -27,10 +27,10 @@ const navigateTo = url => {
 const router = async () => {
 	//inside friends, it will be  /friends/:id
 	const routes = [
-		{ path: "/", view: Login },
-		{ path: "/Login", view: Login },
-		{ path: "/Login/:id", view: Register },
-		{ path: "/Dashboard", view: Dashboard },
+		// { path: "/", view: Login},
+		// { path: "/Login", view: Login },
+		// { path: "/Login/:id", view: Register },
+		{ path: "/dashboard", view: Dashboard },
 		{ path: "/one-vs-one", view: OneVsOne},
 		{ path: "/tournaments", view: Tournaments},
 		{ path: "/friends", view: Friends },
