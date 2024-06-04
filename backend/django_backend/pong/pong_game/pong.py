@@ -93,7 +93,7 @@ class Pong:
 			self.update_game()
 			await self.update_state()
 			if self.player1.score >= 5 or self.player2.score >= 5:
-				self.stop_game()
+				self.stop()
 				print("Game Over", flush=True)
 			delta_time = time.time() - start_time
 			sleep_time = 1./self.tick - delta_time
